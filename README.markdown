@@ -1,21 +1,27 @@
-Changelog
+Overview
+--------
+There a lot of blogging platforms based on Node.js/Express.js.
+When [Parse](Parse.com) introduced hosting with
+Express, they also had an example blog
+called [AnyBlog](http://gitthub.com/ParsePlatform/AnyBlog)
+that showcased the same. However, AnyBlog wasn't a
+practical solution for a blog. This fork develops
+upon AnyBlog so that this can be a viable and easy to use
+blogging platform.
+
+You can check out the official hosted version
+at [www.anyblog.co](http://www.anyblog.co).
+You can check out the demo of my version
+at [aneesh.parseapp.com](http://aneesh.parseapp.com).
+
+Features Added to AnyBlog
 ---------
 1. Removed comments. Comments are now handled by disqus.
 2. Added tags functionality
 3. Added Bootstrap
 4. Added share buttons
 5. Added CKEditor for a fully featured HTML Editor for blog content
-
-Overview
---------
-
-This app showcases [dynamic websites](http://parse.com/docs/cloud_code_guide#webapp)
-using Parse Hosting. It's a simple blog
-that lets you create posts and your readers
-to leave comments.
-
-You can check out the official hosted version
-at [www.anyblog.co](http://www.anyblog.co).
+6. URLs have URL slugs instead of the actual id of the `ParseObject`.
 
 Setup
 -----
@@ -40,7 +46,9 @@ your `disqus_shortname`. (For Step 5)
 5. Edit `cloud/app.js` and specify your `userDisplayName`, 
 `shareAddress` and `disqus_shortname`.
 
-6. Type `parse deploy`. This deploys your app to Parse.
+6. Delete the `images` folder.
 
-7. Go to yoursubdomain.parseapp.com and view your copy of Anyblog forked by Aneesh!
+7. Type `parse deploy`. This deploys your app to Parse.
+
+8. Go to yoursubdomain.parseapp.com and view your copy of Anyblog forked by Aneesh!
 
