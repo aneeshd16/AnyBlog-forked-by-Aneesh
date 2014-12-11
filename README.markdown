@@ -46,12 +46,10 @@ your `disqus_shortname`. (For Step 5)
 5. Edit `cloud/app.js` and specify your `userDisplayName`, 
 `shareAddress` and `disqus_shortname`.
 
-6. Delete the `images` folder.
+6. Type `parse deploy`. This deploys your app to Parse.
 
-7. Type `parse deploy`. This deploys your app to Parse.
+7. Go to yoursubdomain.parseapp.com/blog and view your copy of the blog.
 
-8. Go to yoursubdomain.parseapp.com/blog and view your copy of the blog.
+8. You will see a blank page. Go to to yoursubdomain.parseapp.com/blog/admin to create a new post.
 
-9. You will see a blank page. Go to to yoursubdomain.parseapp.com/blog/admin to create a new post.
-
-10. Enjoy Anyblog forked by Aneesh!
+9. Enjoy Anyblog forked by Aneesh!
