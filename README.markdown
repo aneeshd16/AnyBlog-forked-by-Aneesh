@@ -50,5 +50,8 @@ your `disqus_shortname`. (For Step 5)
 
 7. Type `parse deploy`. This deploys your app to Parse.
 
-8. Go to yoursubdomain.parseapp.com and view your copy of Anyblog forked by Aneesh!
+8. Go to yoursubdomain.parseapp.com/blog and view your copy of the blog.
 
+9. You will see a blank page. Go to to yoursubdomain.parseapp.com/blog/admin to create a new post.
+
+10. Enjoy Anyblog forked by Aneesh!
