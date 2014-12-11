@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>AnyBlog by Aneesh by aneeshd16</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="without-description">
+        <h1>AnyBlog by Aneesh</h1>
+        <p></p>
+        <p class="view"><a href="https://github.com/aneeshd16/AnyBlog-forked-by-Aneesh">View the Project on GitHub <small>aneeshd16/AnyBlog-forked-by-Aneesh</small></a></p>
+        <ul>
+          <li><a href="https://github.com/aneeshd16/AnyBlog-forked-by-Aneesh/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/aneeshd16/AnyBlog-forked-by-Aneesh/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/aneeshd16/AnyBlog-forked-by-Aneesh">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<p>There a lot of blogging platforms based on Node.js/Express.js.
+When <a href="Parse.com">Parse</a> introduced hosting with
+Express, they also had an example blog
+called <a href="http://gitthub.com/ParsePlatform/AnyBlog">AnyBlog</a>
+that showcased the same. However, AnyBlog wasn't a
+practical solution for a blog. This fork develops
+upon AnyBlog so that this can be a viable and easy to use
+blogging platform.</p>
+
+<p>You can check out the official hosted version
+at <a href="http://www.anyblog.co">www.anyblog.co</a>.
+You can check out the demo of my version
+at <a href="http://aneesh.parseapp.com">aneesh.parseapp.com</a>.</p>
+
+<h2>
+<a id="features-added-to-anyblog" class="anchor" href="#features-added-to-anyblog" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features Added to AnyBlog</h2>
+
+<ol>
+<li>Removed comments. Comments are now handled by disqus.</li>
+<li>Added tags functionality</li>
+<li>Added Bootstrap</li>
+<li>Added share buttons</li>
+<li>Added CKEditor for a fully featured HTML Editor for blog content</li>
+<li>URLs have URL slugs instead of the actual id of the <code>ParseObject</code>.</li>
+</ol>
+
+<h2>
+<a id="setup" class="anchor" href="#setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup</h2>
+
+<ol>
+<li><p>Created a new app on Parse, and make sure you go
+through <a href="https://parse.com/docs/cloud_code_guide#started-installing">getting started guide for Cloud Code</a>.</p></li>
+<li><p>Type <code>parse new .</code> in the directory where this
+README resides, authenticate with your Parse credentials,
+and choose the app name you created.</p></li>
+<li><p>Now, we'll need to configure the url where you can
+reach your app. Go to your app's setting page and set
+a unique subdomain for your Web Hosting url. This will
+be your <code>shareAddress</code>. (For Step 5)</p></li>
+<li><p>Go to <a href="https://disqus.com/admin/create/">Disqus</a> and 
+create a new site profile. Choose an unique disqus url.
+If you choose <code>myblog.disqus.com</code>, then <code>myblog</code> is now
+your <code>disqus_shortname</code>. (For Step 5)</p></li>
+<li><p>Edit <code>cloud/app.js</code> and specify your <code>userDisplayName</code>, 
+<code>shareAddress</code> and <code>disqus_shortname</code>.</p></li>
+<li><p>Type <code>parse deploy</code>. This deploys your app to Parse.</p></li>
+<li><p>Go to yoursubdomain.parseapp.com/blog and view your copy of the blog.</p></li>
+<li><p>You will see a blank page. Go to to yoursubdomain.parseapp.com/blog/admin to create a new post.</p></li>
+<li><p>Enjoy Anyblog forked by Aneesh!</p></li>
+</ol>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/aneeshd16">aneeshd16</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
