@@ -8,17 +8,9 @@ exports.index = function(req, res) {
   query.descending('createdAt');
 
   query.find().then(function(posts) {
-    var query = new Parse.Query(Comment);
-    query.descending('createdAt');
-    query.find().then(function(comments) {
       res.render('admin/index', { 
-        posts: posts,
-        comments: comments 
+        posts: posts
       });
-    },
-    function() {
-      res.send(500, 'Failed loading comments');
-    });
   },
   function() {
     res.send(500, 'Failed loading posts');

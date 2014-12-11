@@ -1,14 +1,41 @@
 <% var stylesheet = "admin" %>
-<% include ../_header %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><%= typeof title === "undefined" ? userDisplayName + "'s Blog" : title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='/stylesheets/<%= typeof stylesheet === "undefined" ? "main" : stylesheet %>.css' />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <script src="/ckeditor/ckeditor.js"></script>
+    <link href="ckeditor/plugins/codesnippet/lib/highlight/styles/monokai_sublime.css" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-flat.min.css">
+</head>
+  <body>
 
-<form class='new_post' method='post' action='/posts'>
+<form class='new_post' method='post' action='/blog'>
   <div class='form_section'>
     <label>Title</label>
     <input class='post_title' name='title' />
   </div>
   <div class='form_section'>
+    <label>Description</label>
+    <input class='post_description' name='description' />
+  </div>
+  <div class='form_section'>
+    <label>Tags (enter comma separated tags)</label>
+    <input class='post_tags' name='tags' />
+  </div>
+  <div class='form_section'>
     <label>Body</label>
     <textarea class='post_body' name='body'></textarea>
+    <script>
+       CKEDITOR.replace( 'body' );
+    </script>
   </div>
   <div class='form_section'>
     <input class='button' type='submit' value='Publish' />

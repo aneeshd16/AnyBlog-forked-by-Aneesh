@@ -1,11 +1,9 @@
 var express = require('express');
 var moment = require('moment');
 var _ = require('underscore');
-var md5 = require('cloud/libs/md5.js');
 
 // Controller code in separate files.
 var postsController = require('cloud/controllers/posts.js');
-var commentsController = require('cloud/controllers/comments.js');
 var adminController = require('cloud/controllers/admin.js');
 
 // Required for initializing Express app in Cloud Code.
@@ -15,9 +13,10 @@ var app = express();
 var basicAuth = express.basicAuth('YOUR_USERNAME','YOUR_PASSWORD');
 
 // The information showed about the poster
-var userEmail = 'YOUR_EMAIL';
-var userDisplayName = 'YOUR_DISPLAY_NAME';
-var userDescription = 'YOUR_DESCRIPTION';
+
+var userDisplayName = 'YOUR_NAME';
+var shareAddress='YOUR SUBDOMAIN.PARSEAPP.COM';  //Make sure to add a '/' at the end
+var disqus_shortname='YOUR_DISQUS_NAME';	//Go to disqus.com to get an unique short name
 
 // Instead of using basicAuth, you can also implement your own cookie-based
 // user session management using the express.cookieSession middleware
@@ -35,12 +34,12 @@ app.use(express.methodOverride());
 // You can use app.locals to store helper methods so that they are accessible
 // from templates.
 app.locals._ = _;
-app.locals.hex_md5 = md5.hex_md5;
-app.locals.userEmail = userEmail;
 app.locals.userDisplayName = userDisplayName;
-app.locals.userDescription = userDescription;
+app.locals.shareAddress=shareAddress;
+app.locals.disqus_shortname=disqus_shortname;
+
 app.locals.formatTime = function(time) {
-  return moment(time).format('MMMM Do YYYY, h:mm a');
+  return moment(time).format('MMMM Do YYYY, h:mm a').toUpperCase();
 };
 // Generate a snippet of the given text with the given length, rounded up to the
 // nearest word.
@@ -54,25 +53,22 @@ app.locals.snippet = function(text, length) {
 };
 
 // Show all posts on homepage
-app.get('/', postsController.index);
+app.get('/blog', postsController.index);
 
-// RESTful routes for the blog post object.
-app.get('/posts', postsController.index);
-app.get('/posts/new', basicAuth, postsController.new);
-app.post('/posts', basicAuth, postsController.create);
-app.get('/posts/:id', postsController.show);
-app.get('/posts/:id/edit', basicAuth, postsController.edit);
-app.put('/posts/:id', basicAuth, postsController.update);
-app.del('/posts/:id', basicAuth, postsController.delete);
-
-// RESTful routes for the blog comment object, which belongs to a post.
-app.post('/posts/:post_id/comments', commentsController.create);
-app.del('/posts/:post_id/comments/:id', basicAuth, commentsController.delete);
 
 // Route for admin pages
-app.get('/admin', basicAuth, adminController.index);
-app.get('/admin/posts', basicAuth, adminController.index);
-app.get('/admin/comments', basicAuth, commentsController.index);
+app.get('/blog/admin', basicAuth, adminController.index);
+app.get('/blog/admin/posts', basicAuth, adminController.index);
+// RESTful routes for the blog post object.
+app.get('/blog/new', basicAuth, postsController.new);
+app.get('/blog/tag/:tag', postsController.showTag);
+app.post('/blog', basicAuth, postsController.create);
+app.get('/blog/:slug', postsController.show);
+app.get('/blog/:slug/edit', basicAuth, postsController.edit);
+app.put('/blog/:slug', basicAuth, postsController.update);
+app.del('/blog/:slug', basicAuth, postsController.delete);
+
+
 
 
 // Required for initializing Express app in Cloud Code.

@@ -3,18 +3,28 @@
 <% include ../_header %>
 
 <!-- content -->
-<div class='header'></div>
-  
+<!-- <div class='header'></div> -->
+<div class="sidebar">
+    <a class="btn btn-default btn-lg" href="/blog"><h5><i class="fa fa-chevron-left"></i><span style="margin-left:1em;">HOME</span></h5></a>
+</div>  
 <% include _post %>
+<script>hljs.initHighlightingOnLoad();</script>
+<p>
+       <div style="width:75%;margin-left: auto;margin-right: auto;" id="disqus_thread"></div>
+</p>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = '<%= disqus_shortname %>'; // required: replace example with your forum shortname
 
-<div class='comments'>
-    <div class='number'><%= comments.length %> <%= comments.length === 1 ? 'comment' :  'comments' %></div>
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     
-    <% comments.forEach(function(comment) { %>
-        <% include ../comments/_comment %>
-    <% }) %>
-    <% include ../comments/_new %>
-</div>
 
 <!-- Include the footer partial -->
 <% include ../_footer %>

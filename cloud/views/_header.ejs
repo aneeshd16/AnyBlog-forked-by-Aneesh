@@ -2,10 +2,104 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title><%= typeof title === "undefined" ? "AnyBlog" : title %></title>
+    <title><%= typeof title === "undefined" ? userDisplayName + "'s Blog" : title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--For CKEditor    -->
+    <link href="/ckeditor/plugins/codesnippet/lib/highlight/styles/monokai_sublime.css" rel="stylesheet">
+    <script src="/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-flat.min.css">
+    <!--Stylesheet present in the original AnyBlog project    -->
     <link rel='stylesheet' href='/stylesheets/<%= typeof stylesheet === "undefined" ? "main" : stylesheet %>.css' />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <!--Font Awesome!    -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+    /*Styles for the share buttons*/
+                .fa-button {
+      background-color: white;
+      border-radius: 3.6rem;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 2.0rem;
+      height: 3.6rem;
+      line-height: 3.6rem;
+      margin: 0 5px;
+      position: relative;
+      text-align: center;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+      width: 3.6rem;
+    }
+
+    /* Circle */
+    .fa-button span {
+      border-radius: 0;
+      display: block;
+      height: 0;
+      left: 50%;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      -webkit-transition: all 0.3s;
+         -moz-transition: all 0.3s;
+           -o-transition: all 0.3s;
+              transition: all 0.3s;
+      width: 0;
+    }
+    .fa-button:hover span {
+      width: 3.6rem;
+      height: 3.6rem;
+      border-radius: 3.6rem;
+      margin: -1.8rem;
+    }
+    .twitter span {
+      background-color: #4099ff;
+    }
+    .facebook span {
+      background-color: #3B5998;
+    }
+    .google-plus span {
+      background-color: #db5a3c;
+    }
+
+    /* fas */
+    .fa-button i {
+      background: none;
+      color: white;
+      height: 3.6rem;
+      left: 0;
+      line-height: 3.6rem;
+      position: absolute;
+      top: 0;
+      -webkit-transition: all 0.3s;
+         -moz-transition: all 0.3s;
+           -o-transition: all 0.3s;
+              transition: all 0.3s;
+      width: 3.6rem;
+      z-index: 10;
+    }
+    .fa-button .fa-twitter {
+      color: #4099ff;
+    }
+    .fa-button .fa-facebook {
+      color: #3B5998;
+    }
+    .fa-button .fa-google-plus {
+      color: #db5a3c;
+    }
+    .fa-button:hover .fa-twitter,
+    .fa-button:hover .fa-facebook,
+    .fa-button:hover .fa-google-plus {
+      color: white;
+    }
+    </style>
+
   </head>
   <body>

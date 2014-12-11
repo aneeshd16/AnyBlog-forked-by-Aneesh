@@ -1,11 +1,11 @@
 <div class='post_item'>
   <div class='post_date'><%= formatTime(post.createdAt) %></div>
-  <a class='post_title' href="<%= '/posts/' + post.id %>"><%= post.get('title') %></a>
-  <div class='post_body'><%= post.get('body') %></div>
+  <a class='post_title' href="<%= '/blog/' + post.get('url') %>"><%= post.get('title') %></a>
+  <div class='post_body'><%= post.get('description') %></div>
   <div class='post_actions'>
-    <a class='link_button' href="<%= '/posts/' + post.id + '/edit' %>">edit</a>
+    <a class='link_button' href="<%= '/blog/' + post.get('url') + '/edit' %>">edit</a>
     <div class='pipe_separator'>|</div>
-    <form class='link_button_form' action="<%= '/posts/' + post.id %>" method='post'>
+    <form class='link_button_form' action="<%= '/blog/' + post.get('url')  %>" method='post'>
       <!-- This hidden element causes express.methodOverride middleware to override
       the HTTP method from post to delete for a truly RESTful interface. -->
       <input type='hidden' name='_method' value='delete' />

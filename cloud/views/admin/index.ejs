@@ -4,13 +4,11 @@
 
 <div class='blog_body'>
 	<div class='blog_actions'>
-		<a href='/'>back to blog</a>
+		<a href='/blog'>back to blog</a>
 	  	<div class='pipe_separator'>|</div>
-	  	<a href='/posts/new'>new post</a>
-	  	<div class='pipe_separator'>|</div>
-	  	<a href='/admin/comments'>all comments</a>
+	  	<a href='/blog/new'>new post</a>
 	</div>
-  	<h1>AnyBlog - Admin</h1>
+  	<h1>Admin Panel</h1>
   	<% if (!_.isEmpty(posts)) { %>
     	<div class='post_container'>
       		<% posts.forEach(function(post) { %>

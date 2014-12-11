@@ -1,23 +1,20 @@
 <!-- Include the header partial -->
 <% include ../_header %>
 
-<!-- content -->
 <div class="sidebar">
-    <div class="picture">
-        <% var hash = hex_md5(userEmail); %>
-      	<img src=<%= 'https://secure.gravatar.com/avatar/' + hash + '?size=220&default=https%3A%2F%2Fwww.parse.com%2Fimages%2Faccounts%2Fno_avatar.png' %> />  </div>
-  	<div class="username"><%= userDisplayName %></div>
-  	<div class="blog_description"><%= userDescription %></div>
-</div>
-  	
-<div class="main_content">
+    <% if(!(typeof viewTitle === "undefined")){ %><a class="btn btn-default btn-lg" href="/blog"><h5><i class="fa fa-chevron-left"></i><span style="margin-left:1em;">HOME</span></h5></a><% }%>
+</div>  
+<div >
+    <h1 class="post"><%= typeof viewTitle === "undefined" ? "" : viewTitle %></h1>
   	<% posts.forEach(function(post) { %>
+    <article class="post">
   		<div class="post_link">
-	  		<h1><a href="<%= '/posts/' + post.id %>"><%= post.get("title") %></a></h1>
-	  		<h5><%= formatTime(post.createdAt) %></h5>
-	  		<p><%- snippet(post.get("body"), 210) %></p>
+	  		<h1><a href="<%= '/blog/' + post.get("url") %>"><%= post.get("title") %></a></h1>
+	  		<p><%- snippet(post.get("description"), 210) %></p>    
+        <h5><span><%= userDisplayName %> on <% for(var i=0; i<post.get("tags").length-1; i++){ %><a class="post_link" href="/blog/tag/<%= post.get("tags")[i] %>"><%= post.get("tags")[i] %></a>, <% } %><a class="post_link" href="/blog/tag/<%= post.get("tags")[post.get("tags").length-1] %>"><%= post.get("tags")[post.get("tags").length-1] %></a> | <%= formatTime(post.createdAt) %></span></h5>
   		</div>
-    <% }) %>
+      </article>
+    <% }); %>
 </div>
 
 <!-- Include the footer partial -->

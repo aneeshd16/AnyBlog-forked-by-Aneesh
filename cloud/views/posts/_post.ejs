@@ -1,13 +1,14 @@
 <div class='post'>
-    <div class='picture'>
-        <% var hash = hex_md5(userEmail); %>
-        <img src=<%= 'https://secure.gravatar.com/avatar/' + hash + '?size=130&default=https%3A%2F%2Fwww.parse.com%2Fimages%2Faccounts%2Fno_avatar.png' %> />
-    </div>
-
-
-    <h1><a href="<%= '/posts/' + post.id %>"><%= post.get('title') %></a></h1>
-    <h5><%= formatTime(post.createdAt) %></h5>
+    <h1><a href="<%= '/blog/' + post.get('url') %>"><%= post.get('title') %></a></h1>
+    <h5><span><%= userDisplayName %> on <% for(var i=0; i<post.get("tags").length-1; i++){ %><a class="post_link" href="/blog/tag/<%= post.get("tags")[i] %>"><%= post.get("tags")[i] %></a>, <% } %><a class="post_link" href="/blog/tag/<%= post.get("tags")[post.get("tags").length-1] %>"><%= post.get("tags")[post.get("tags").length-1] %></a> | <%= formatTime(post.createdAt) %></span></h5>
     <div class='content'>
         <p><%- post.get('body').replace(/\n/g, '<br />') %></p>
     </div>
+    <div>
+    <h5>Share this post</h5><br>
+    <p>
+    <a href="https://twitter.com/share?text=<%= post.get('title') %>&amp;url=<%= shareAddress + post.get('url') %>" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" class="fa fa-button twitter"><i class="fa fa-twitter"></i><span></span></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=<%= shareAddress + post.get('url') %>" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" class="fa fa-button facebook"><i class="fa fa-facebook"></i><span></span></a>
+    <a href="https://plus.google.com/share?url=<%= shareAddress + post.get('url') %>" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" class="fa fa-button google-plus"><i class="fa fa-google-plus"></i><span></span></a></p>
+  </div>
 </div>
