@@ -1,6 +1,6 @@
 Overview
 --------
-There a lot of blogging platforms based on Node.js/Express.js.
+There are a lot of blogging platforms based on Node.js/Express.js.
 When [Parse](Parse.com) introduced hosting with
 Express, they also had an example blog
 called [AnyBlog](http://gitthub.com/ParsePlatform/AnyBlog)
@@ -12,7 +12,7 @@ blogging platform.
 You can check out the official hosted version
 at [www.anyblog.co](http://www.anyblog.co).
 You can check out the demo of my version
-at [aneesh.parseapp.com](http://aneesh.parseapp.com).
+at [aneesh.parseapp.com/blog](http://aneesh.parseapp.com/blog).
 
 Features Added to AnyBlog
 ---------
@@ -35,8 +35,7 @@ and choose the app name you created.
 
 3. Now, we'll need to configure the url where you can
 reach your app. Go to your app's setting page and set
-a unique subdomain for your Web Hosting url. This will
-be your `shareAddress`. (For Step 5)
+a unique subdomain for your Web Hosting url. The `subdomain.parseapp.com/blog/` will be your `shareAddress`. (For Step 5)
 
 4. Go to [Disqus](https://disqus.com/admin/create/) and 
 create a new site profile. Choose an unique disqus url.
