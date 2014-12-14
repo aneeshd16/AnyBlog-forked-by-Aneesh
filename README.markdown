@@ -35,7 +35,7 @@ and choose the app name you created.
 
 3. Now, we'll need to configure the url where you can
 reach your app. Go to your app's setting page and set
-a unique subdomain for your Web Hosting url. The `subdomain.parseapp.com/blog/` will be your `shareAddress`. (For Step 5)
+a unique subdomain for your Web Hosting url. The `subdomain.parseapp.com/` will be your `shareAddress`. (For Step 5)
 
 4. Go to [Disqus](https://disqus.com/admin/create/) and 
 create a new site profile. Choose an unique disqus url.
