@@ -15,8 +15,9 @@ var basicAuth = express.basicAuth('YOUR_USERNAME','YOUR_PASSWORD');
 // The information showed about the poster
 
 var userDisplayName = 'YOUR_NAME';
-var shareAddress='YOUR SUBDOMAIN.PARSEAPP.COM';  //Make sure to add a '/' at the end
+var shareAddress='YOUR SUBDOMAIN.PARSEAPP.COM/';  //Make sure to add a '/' at the end
 var disqus_shortname='YOUR_DISQUS_NAME';	//Go to disqus.com to get an unique short name
+var blogDescription='The description of your blog. Appears in the sidebar of every page.'	//Leave as '' if you want it to be blank
 
 // Instead of using basicAuth, you can also implement your own cookie-based
 // user session management using the express.cookieSession middleware
@@ -35,8 +36,9 @@ app.use(express.methodOverride());
 // from templates.
 app.locals._ = _;
 app.locals.userDisplayName = userDisplayName;
-app.locals.shareAddress=shareAddress;
+app.locals.shareAddress=shareAddress + 'blog/';
 app.locals.disqus_shortname=disqus_shortname;
+app.locals.blogDescription=blogDescription;
 
 app.locals.formatTime = function(time) {
   return moment(time).format('MMMM Do YYYY, h:mm a').toUpperCase();
