@@ -251,6 +251,12 @@ textarea {
 	font-family: 'AvenirLT-Light', "Helvetica-Neue", Helvetica, Tahoma, sans-serif;
 }
 
+.post .content ol {
+	font-size: 21px;
+	line-height: 30px;
+	font-family: 'AvenirLT-Light', "Helvetica-Neue", Helvetica, Tahoma, sans-serif;
+}
+
 .post .content p a {
 	color: #49A3D6
 }
