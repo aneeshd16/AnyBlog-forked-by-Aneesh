@@ -12,7 +12,7 @@ blogging platform.
 You can check out the official hosted version
 at [www.anyblog.co](http://www.anyblog.co).
 You can check out the demo of my version
-at [aneesh.parseapp.com/blog](http://aneesh.parseapp.com/blog).
+at [aneeshdevasthale.me/blog](http://aneeshdevasthale.me/blog).
 
 Features Added to AnyBlog
 ---------
