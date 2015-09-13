@@ -3,7 +3,7 @@ Overview
 There are a lot of blogging platforms based on Node.js/Express.js.
 When [Parse](Parse.com) introduced hosting with
 Express, they also had an example blog
-called [AnyBlog](http://gitthub.com/ParsePlatform/AnyBlog)
+called [AnyBlog](http://github.com/ParsePlatform/AnyBlog)
 that showcased the same. However, AnyBlog wasn't a
 practical solution for a blog. This fork develops
 upon AnyBlog so that this can be a viable and easy to use
@@ -12,7 +12,7 @@ blogging platform.
 You can check out the official hosted version
 at [www.anyblog.co](http://www.anyblog.co).
 You can check out the demo of my version
-at [aneeshdevasthale.me/blog](http://aneeshdevasthale.me/blog).
+at [aneesh.xyz/blog](http://aneesh.xyz/blog).
 
 Features Added to AnyBlog
 ---------
@@ -43,7 +43,7 @@ If you choose `myblog.disqus.com`, then `myblog` is now
 your `disqus_shortname`. (For Step 5)
 
 5. Edit `cloud/app.js` and specify your `userDisplayName`, 
-`shareAddress` and `disqus_shortname`.
+`shareAddress` , `blogTitle` and `disqus_shortname`.
 
 6. Type `parse deploy`. This deploys your app to Parse.
 
