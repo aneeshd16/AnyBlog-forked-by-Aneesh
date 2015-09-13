@@ -1,23 +1,22 @@
 <!-- Include the header partial -->
 <% include ../_header %>
 
-<div class="sidebar">
-    <% if(!(typeof viewTitle === "undefined")){ %><a class="btn btn-default btn-lg" href="/blog"><h5><i class="fa fa-chevron-left"></i><span style="margin-left:1em;">BLOG</span></h5></a><br><% }%>
-    <a class="btn btn-default btn-lg" href="/"><h5><i class="fa fa-chevron-left"></i><span style="margin-left:1em;">HOME</span></h5></a>
-    <p style="margin-left:auto;margin-right:auto;margin-left:2em;"><%= blogDescription %></p>
-</div>  
-<div >
-    <h1 class="post"><%= typeof viewTitle === "undefined" ? "" : viewTitle %></h1>
-  	<% posts.forEach(function(post) { %>
-    <article class="post">
-  		<div class="post_link">
-	  		<h1><a href="<%= '/blog/' + post.get("url") %>"><%= post.get("title") %></a></h1>
-	  		<p><%- snippet(post.get("description"), 210) %></p>    
-        <h5><span><%= userDisplayName %> on <% for(var i=0; i<post.get("tags").length-1; i++){ %><a class="post_link" href="/blog/tag/<%= post.get("tags")[i] %>"><%= post.get("tags")[i] %></a>, <% } %><a class="post_link" href="/blog/tag/<%= post.get("tags")[post.get("tags").length-1] %>"><%= post.get("tags")[post.get("tags").length-1] %></a> | <%= formatTime(post.createdAt) %></span></h5>
-  		</div>
-      </article>
-    <% }); %>
+<div class="row">
+  <div class="col-xs-12">
+      <h1 class="post"><%= typeof viewTitle === "undefined" ? "" : viewTitle %></h1>
+      <% posts.forEach(function(post) { %>
+      <article class="post">
+        <div class="post_link">
+          <h1><a href="<%= '/blog/' + post.get("url") %>"><%= post.get("title") %></a></h1>
+          <p><%- snippet(post.get("description"), 210) %></p>    
+          <h5><span><%= userDisplayName %> on <% for(var i=0; i<post.get("tags").length-1; i++){ %><a class="post_link" href="/blog/tag/<%= post.get("tags")[i] %>"><%= post.get("tags")[i] %></a>, <% } %><a class="post_link" href="/blog/tag/<%= post.get("tags")[post.get("tags").length-1] %>"><%= post.get("tags")[post.get("tags").length-1] %></a> | <%= formatTime(post.createdAt) %></span></h5>
+        </div>
+        </article>
+        <hr>
+      <% }); %>
+  </div>
 </div>
+
 
 <!-- Include the footer partial -->
 <% include ../_footer %>
